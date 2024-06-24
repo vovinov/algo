@@ -5,7 +5,6 @@
 
 # Increment the large integer by one and return the resulting array of digits.
 
-from collections import deque
 
 def plusOne(digits):
     for i in range(len(digits) - 1, -1, -1):
