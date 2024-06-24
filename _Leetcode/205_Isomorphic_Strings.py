@@ -7,8 +7,6 @@ def isIsomorphic(s: str, t: str):
 
     s2t, t2s = {}, {}
 
-    for item in zip(s, t):
-        print(item)
 
     for c1, c2 in zip(s, t):
 
