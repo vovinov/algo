@@ -5,10 +5,57 @@ Node.val == val, and return the new head.
 '''
 
 
-def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-    pass
+class Node():
+
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
 
 
-print([1,2,6,3,4,5,6], 6)
-print([], 1)
-print([7,7,7,7], 7)
+head = Node(1)
+b = Node(2)
+c = Node(6)
+d = Node(3)
+e = Node(4)
+f = Node(5)
+h = Node(6)
+
+head.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+f.next = h
+
+
+def print_list(head):
+    res = []
+    cur = head
+    while cur:
+        res.append(cur.value)
+        cur = cur.next
+
+    return res
+
+
+def removeElements(head, val):
+
+    dummy = Node(0, next=head)
+    cur = head
+    prev = dummy
+
+    while cur:
+
+        if cur.value == val:
+            prev.next = cur.next
+        else:
+            prev = cur
+
+        cur = cur.next
+
+    return dummy.next
+
+
+print(print_list(removeElements(head, 6)))
+
+print(removeElements([7, 7, 7, 7], 7))
