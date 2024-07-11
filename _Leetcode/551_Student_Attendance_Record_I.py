@@ -9,8 +9,25 @@ or false otherwise.
 """
 
 
-def checkRecord(s: str) -> bool:
-    pass
+def checkRecord(s: str):
+
+    count_l = 0
+
+    if s.count("A") > 1:
+        return False
+
+    for grade in s:
+
+        if grade == "L":
+            count_l += 1
+        else:
+            count_l = 0
+
+        if count_l > 2:
+            return False
+
+    return True
 
 
 print(checkRecord("PPALLP"))
+print(checkRecord("PPALLL"))
