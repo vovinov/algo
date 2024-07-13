@@ -1,3 +1,9 @@
+"""
+Given two strings s and t, return true
+if s is a subsequence of t, or false otherwise.
+"""
+
+
 def isSubsequence(s: str, t: str) -> bool:
 
     stack = list(s)
