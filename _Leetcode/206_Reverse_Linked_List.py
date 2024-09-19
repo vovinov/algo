@@ -26,24 +26,19 @@ def out(head):
     return elems
 
 
+print(out(a))
+
+
 def reverse(head):
-    cur = head
+
     prev = None
+    cur = head
 
     while cur:
-        next_node = cur.next
-        cur.next = prev
-        prev = cur
-        cur = next_node
+        cur.next, prev, cur = prev, cur, cur.next
+
     return prev
 
 
-print(reverse(a))
-print(out(e))
-
-# print(out(a))
-
-
-
-
-
+reverse(a)
+print(out(a))

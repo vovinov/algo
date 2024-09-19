@@ -1,4 +1,3 @@
-
 class Node:
 
     def __init__(self, val=None):
@@ -12,10 +11,11 @@ c = Node(0)
 d = Node(-4)
 
 
-# a.next = b
+a.next = b
 b.next = c
 c.next = d
 d.next = b
+
 
 def out(head):
     elems = []
@@ -28,19 +28,40 @@ def out(head):
     return elems
 
 
-def is_cycle(head):
+def is_cycle1(head):
 
     seen = set()
 
     while head:
+
         if head in seen:
             return True
+
         seen.add(head)
+
         head = head.next
 
     return False
 
-print(is_cycle(a))
+
+def is_cycle2(head):
+
+    if not head:
+        return False
+
+    slow = head
+    fast = head.next
+
+    while fast and fast.next:
+
+        if slow == fast:
+            return True
+
+        slow = slow.next
+        fast = fast.next.next
+
+    return False
 
 
-
+print(is_cycle1(a))
+print(is_cycle2(a))
