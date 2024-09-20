@@ -1,3 +1,6 @@
+from copy import deepcopy
+
+
 class Node:
 
     def __init__(self, val=None):
@@ -32,13 +35,17 @@ print(out(a))
 def reverse(head):
 
     prev = None
+    nextp = None
     cur = head
 
     while cur:
-        cur.next, prev, cur = prev, cur, cur.next
+        nextp = cur.next
+        cur.next = prev
+        prev = cur
+        cur = nextp
 
     return prev
 
 
-reverse(a)
-print(out(a))
+prev = reverse(a)
+print(out(prev))
