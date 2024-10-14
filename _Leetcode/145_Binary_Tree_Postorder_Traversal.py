@@ -1,9 +1,3 @@
-"""
-iven the root of a binary tree, return the postorder
-traversal of its nodes' values.
-"""
-
-
 def postorderTraversal():
 
     class TreeNode:
