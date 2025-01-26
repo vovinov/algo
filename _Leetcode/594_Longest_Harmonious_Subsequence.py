@@ -2,18 +2,36 @@
 
 def findLHS(nums):
 
-    ans = [nums[0]]
+    # Сортировка массива
+    nums.sort()
 
-    for i in range(1, len(nums)):
+    # Задаём начальные переменные
+    l, r = 0, 1
+    ans = 0
 
-        current = nums[i]
+    # Основной цикл
+    while r < len(nums):
 
-        if abs(current - ans[0]) <= 1:
-            ans.append(current)
+        # Ищем разницу
+        diff = nums[r] - nums[l]
 
-    mx = cur if len(cur) > len(mx)
+        # Проверка на гармоничность, разница между элементами
+        # не должна превышать 1
+        if diff == 1:
 
-    return len(mx)
+            # Сверяем максимальное и полученное значение, перезаписываем
+            ans = max(ans, r - l + 1)
+
+        # Если разница меньше 1, идём дальше
+        if diff <= 1:
+            r += 1
+        # Если больше, двигаем левый показатель
+        else:
+            l += 1
+
+    return ans
 
 
-print(findLHS([1, 3, 2, 2, 5, 2, 3, 7]))
+# print(findLHS([1, 3, 2, 2, 5, 2, 3, 7]))  # [3,2,2,2,3]
+print(findLHS([1, 2, 3, 4]))  # [1, 2]
+# print(findLHS([1, 1, 1, 1]))  # [1, 2]
