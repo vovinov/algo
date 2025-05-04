@@ -1,22 +1,17 @@
-from typing import List
-
-
-def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
+def containsNearbyDuplicate(nums, k: int) -> bool:
 
     d = {}
 
-    for i in range(len(nums)):
+    for i, num in enumerate(nums):
 
-        cur = nums[i]
-        if cur in d:
-            if abs(i - d[nums[i]]) <= k:
-                return True
-        else:
-            d[nums[i]] = i
+        if num in d and i - d[num] <= k:
+            return True
+
+        d[num] = i
 
     return False
 
 
-print(containsNearbyDuplicate([1, 2, 3, 1], 3))
-print(containsNearbyDuplicate([1, 0, 1, 1], k=1))
+# print(containsNearbyDuplicate([1, 2, 3, 1], 3))
+# print(containsNearbyDuplicate([1, 0, 1, 1], k=1))
 print(containsNearbyDuplicate([1, 2, 3, 1, 2, 3], k=2))

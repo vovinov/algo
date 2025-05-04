@@ -31,6 +31,8 @@ def nextGreaterElement2(nums1, nums2):
         # Добавляем текущий элемент в стек
         stack.append(num)
 
+    return [next_greater.get(n, -1) for n in nums1]
+
 
 # print(nextGreaterElement1([4, 1, 2], [1, 3, 4, 2]))
 print(nextGreaterElement2([4, 1, 2], [1, 3, 2, 4]))
